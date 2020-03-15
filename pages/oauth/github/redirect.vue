@@ -1,27 +1,27 @@
 <template>
-  <p>Twitterへリダイレクトしています</p>
+  <p>Githubへリダイレクトしています</p>
 </template>
 
 <script>
 export default {
   middleware: 'guest',
-  name: 'OauthTwitterRedirect',
+  name: 'OauthGithubRedirect',
   asyncData ({ app, error }) {
-    return app.$axios.$get('/oauth/twitter/redirect')
+    return app.$axios.$get('/oauth/github/redirect')
       .then((data) => {
-        return { twitterAuthUrl: data.redirect_url }
+        return { githubAuthUrl: data.redirect_url }
       })
       .catch(e => error({ message: e.message, statusCode: e.statusCode }))
   },
   data: () => {
     return {
-      twitterAuthUrl: ''
+      githubAuthUrl: ''
     }
   },
   mounted () {
-    // window.location.href = this.twitterAuthUrl
+    // window.location.href = this.githubAuthUrl
     // eslint-disable-next-line no-console
-    console.log(this.twitterAuthUrl)
+    console.log(this.githubAuthUrl)
   }
 }
 </script>
