@@ -31,7 +31,7 @@ export default {
     }
   },
   mounted () {
-    // window.location.href = this.provierUrl
+    window.location.href = this.provierUrl
     // eslint-disable-next-line no-console
     console.log(this.provierUrl)
   }
