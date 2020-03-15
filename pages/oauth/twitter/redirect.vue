@@ -7,8 +7,9 @@ export default {
   middleware: 'guest',
   name: 'OauthTwitterRedirect',
   asyncData ({ app, error }) {
-    return app.$axios.$get('/oauth/twitter/redirect')
+    return app.$axios.$get('/api/oauth/twitter/redirect')
       .then((data) => {
+        // eslint-disable-next-line no-console
         console.log(data)
         return { twitterAuthUrl: data.redirect_url }
       })

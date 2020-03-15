@@ -3,7 +3,6 @@ require('dotenv').config()
 
 export default {
   mode: 'spa',
-  credentials: true,
   /*
   ** Headers of the page
   */
@@ -56,7 +55,8 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: process.env.NUXT_ENV_API_URL
+    baseURL: process.env.NUXT_ENV_API_URL,
+    credentials: true
   },
   /*
   ** vuetify module configuration
