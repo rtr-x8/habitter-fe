@@ -7,7 +7,6 @@ export default {
   middleware: 'guest',
   name: 'OauthRedirectProvider',
   validate ({ params }) {
-    // 数値でなければならない
     return ['twitter', 'github'].includes(params.provider)
   },
   asyncData ({ app, error, params }) {
