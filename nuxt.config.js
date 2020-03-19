@@ -57,7 +57,13 @@ export default {
   */
   axios: {
     baseURL: process.env.NUXT_ENV_API_URL,
-    credentials: true
+    credentials: true,
+    requestInterceptor: (config, { store }) => {
+      if (store.state.token) {
+        config.headers.common.Authorization = `Bearer ${store.state.token}`
+      }
+      return config
+    }
   },
   /*
   ** vuetify module configuration
